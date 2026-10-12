@@ -50,15 +50,10 @@ Evaluation against baseline super-resolution architectures on Sentinel-2 validat
 
 ## Super-Resolution Output Visualizations
 
-### 1. DiffFuSR 4x Multi-Area Evaluation Across India
+### DiffFuSR 4x Multi-Area Evaluation Across India
 Generated directly by [`sage_sr_difffusr.ipynb`](sage_sr_difffusr.ipynb) on Kaggle GPU. Comparison of Low-Resolution (LR 10m), Bicubic Baseline (2.5m), and DiffFuSR (2.5m) across the 5 Indian geographic regions:
 
 ![DiffFuSR 5 Areas Comparison](docs/assets/difffusr_5areas_india.png)
-
-### 2. RealESRGAN Comparative Benchmark
-Comparative GAN benchmark across identical target zones:
-
-![RealESRGAN Benchmark](docs/assets/realesrgan_5areas_india.png)
 
 ---
 
@@ -68,8 +63,7 @@ Comparative GAN benchmark across identical target zones:
 sage-sr/
 ├── docs/
 │   └── assets/
-│       ├── difffusr_5areas_india.png
-│       └── realesrgan_5areas_india.png
+│       └── difffusr_5areas_india.png
 ├── raw/
 │   ├── gan-sr-model-test.ipynb
 │   └── validation-test.ipynb
