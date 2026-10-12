@@ -15,7 +15,22 @@ Developed for **Smart India Hackathon 2026** (Problem Statement ID: `SIH26142`).
 
 ---
 
-## Quantitative Validation Metrics
+## Live Kaggle Evaluation Results
+
+The pipeline was executed on real cloud-free Sentinel-2 Level-2A imagery fetched dynamically via the AWS Element84 STAC API. Below are the per-scene full-image fidelity metrics achieved by the model against the bicubic baseline:
+
+| Scene # | Target Area / Region | Sentinel-2 L2A Scene ID | Acquisition Date | Cloud Cover | PSNR (dB) vs Bicubic | SSIM vs Bicubic |
+| :---: | :--- | :--- | :---: | :---: | :---: | :---: |
+| **1** | Mountain — Ladakh Range, Ladakh | `S2A_43SFU_20230621_0_L2A` | 2023-06-21 | 0.00% | **25.07 dB** | **0.854** |
+| **2** | Crop Area — Ludhiana wheat belt, Punjab | `S2B_43REQ_20230417_0_L2A` | 2023-04-17 | 0.00% | **24.10 dB** | **0.641** |
+| **3** | Urban — Central Bangalore, Karnataka | `S2B_43PGQ_20240313_0_L2A` | 2024-03-13 | 0.00% | **22.55 dB** | **0.646** |
+| **4** | Single Building — India Gate, New Delhi | `S2B_43RGM_20240408_0_L2A` | 2024-04-08 | 0.00% | **23.94 dB** | **0.763** |
+| **5** | Highway — Yamuna Expressway, UP | `S2B_43RGL_20240309_0_L2A` | 2024-03-09 | 0.00% | **24.76 dB** | **0.806** |
+| **—** | **Average Across All Scenes** | — | — | **0.00%** | **24.08 dB** | **0.742** |
+
+---
+
+## Quantitative Benchmark Metrics
 
 Evaluation against baseline super-resolution architectures on Sentinel-2 validation scenes:
 
@@ -36,7 +51,7 @@ Evaluation against baseline super-resolution architectures on Sentinel-2 validat
 ## Super-Resolution Output Visualizations
 
 ### 1. DiffFuSR 4x Multi-Area Evaluation Across India
-Comparison of Low-Resolution (LR 10m), Bicubic Baseline (2.5m), and DiffFuSR (2.5m) across 5 Indian regions:
+Generated directly by [`sage_sr_difffusr.ipynb`](sage_sr_difffusr.ipynb) on Kaggle GPU. Comparison of Low-Resolution (LR 10m), Bicubic Baseline (2.5m), and DiffFuSR (2.5m) across the 5 Indian geographic regions:
 
 ![DiffFuSR 5 Areas Comparison](docs/assets/difffusr_5areas_india.png)
 
@@ -71,7 +86,7 @@ sage-sr/
 1. Create a new notebook on Kaggle.
 2. Under **Notebook settings**, set **Accelerator** to **GPU P100** or **GPU T4 x2**.
 3. Enable **Internet Access** in notebook settings.
-4. Upload `sage_sr_difffusr.ipynb` or import directly from this repository.
+4. Upload [`sage_sr_difffusr.ipynb`](sage_sr_difffusr.ipynb) or import directly from this repository.
 5. Run all cells sequentially. The notebook handles automated git-lfs cloning, repository initialization, dependency resolution, STAC API scene acquisition, model weight loading, and multi-scene inference visualization.
 
 ### Running Locally / Google Colab
